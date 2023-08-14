@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .forms import UserForm
+from .forms import UserForm, CustomerProfileForm
 from django.views import View
 from .models import Product
 from django.db.models import Count
@@ -36,4 +36,16 @@ def product_detail(request, pk):
 		"product": product,
 	}
 	return render(request, "includes/product_detail.html", context=context)
+
+class Profile(View):
+	def get(self, request):
+		form = CustomerProfileForm()
+		context = {
+		"form": form,
+		}
+		return render(request, "includes/profile.html", context=context)
+	def post(self, request):
+		if request.method == "POST":
+			pass
+		return render(request, "includes/profile.html")
 

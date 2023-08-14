@@ -1,18 +1,18 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block title %}
-	Registration
+Login
 {% endblock %}
 
 {% block content %}
-
-<div class="container">
+ 
+ <div class="container">
 	<div class="row my-3">
 		<div class="col-sm-6 offset-sm-3">
-			<h3>Customer Registration</h3>
+			<h3>Customer Login</h3>
 			<hr>
 
-			<form action="{% url 'registration' %}" method="POST" novalidate class="shadow p-5">
+			<form action="{% url 'login' %}" method="POST" novalidate class="shadow p-5">
 				{% csrf_token %}
 				{% for field in form %}
 				<div>
@@ -22,11 +22,14 @@
 					<br>
 				</div>
 			{% endfor %}
+			<small><a href="{% url 'password_reset' %}" >Forgot Password ?</a></small> <br>	<br>	
 			
-			<input type="submit" class="btn btn-primary" value="Register">
+			<input type="submit" class="btn btn-primary" value="Log in">
 			<br>
 			<div class="text-primary fw-bold">
-				<small>Existing User ? <a href="{% url 'login' %}" class="text-danger">Login Now</a></small>
+								
+<br>
+				<small>New User ? <a href="{% url 'registration' %}" class="text-danger">Register Now</a></small>
 			</div>
 				
 				{% if form.non_field_errors %}
@@ -47,8 +50,6 @@
 	</div>
 </div>
 	<br>
-	<br><br>
-
 
 
 {% endblock %}

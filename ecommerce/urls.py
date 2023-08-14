@@ -9,4 +9,5 @@ urlpatterns = [
 	path("product_title/<val>", views.CategoryTitle.as_view(), name="category_title"),
 	path("about_us/", views.about_us, name="about_us"),
 	path("contact/", views.contact, name="contact"),
+	path("profile/", views.Profile.as_view(), name="profile"),
 ]
